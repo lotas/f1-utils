@@ -12,7 +12,6 @@ Times of interest:
   ** qualifying
   ** race
 
-  ** - for current season only, as information lacks
 
 Returns json-string
  {
@@ -45,6 +44,19 @@ from BeautifulSoup import Tag
 from BeautifulSoup import NavigableString
 
 from pprint import pprint
+
+
+if False and len(sys.argv) < 3:
+    print "Not enough arguments."
+    print sys.argv[0], " year gp-name [type]"
+    print ""
+    print "\t   year: i.e. 2013"
+    print "\tgp-name: i.e. Monaco"
+    print "\t   type: practice 1|practice 2|practice 3|qualifying|race|all default 'all'"
+    print ""
+    exit(1)
+
+
 
 def _absUrl(url):
     """
@@ -111,17 +123,7 @@ def parseGpEvent(gpUrl, eventType):
 
     return lns
 
-
-if False and len(sys.argv) < 3:
-    print "Not enough arguments."
-    print sys.argv[0], " year gp-name [type]"
-    print ""
-    print "\t   year: i.e. 2013"
-    print "\tgp-name: i.e. Monaco"
-    print "\t   type: practice 1|practice 2|practice 3|qualifying|race|all default 'all'"
-    print ""
-    exit(1)
-    
+  
 
 year = sys.argv[1]
 gpname = sys.argv[2]
