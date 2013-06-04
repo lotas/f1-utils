@@ -5,8 +5,6 @@ __email__ = "lotask@gmail.com"
 """
 Retrieve times from F1.com website
 
-Store them into stats_* tables
-
 Times of interest: 
   * practice 1, 2, 3  
   ** qualifying
