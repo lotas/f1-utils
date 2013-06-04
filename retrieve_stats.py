@@ -12,6 +12,10 @@ Times of interest:
   ** qualifying
   ** race
 
+Invoke:
+python retrieve_stats YEAR GPNAME EVENT
+  GPNAME i.e. Spain, Monaco, etc
+  EVENT "practice 1", "practice 2", "practice 3", "qualifying", "race", "all"
 
 Returns json-string
  {
@@ -46,7 +50,7 @@ from BeautifulSoup import NavigableString
 from pprint import pprint
 
 
-if False and len(sys.argv) < 3:
+if len(sys.argv) < 3:
     print "Not enough arguments."
     print sys.argv[0], " year gp-name [type]"
     print ""
@@ -119,7 +123,7 @@ def parseGpEvent(gpUrl, eventType):
         tds = [_fmtNode(x.contents) for x in row.contents if isinstance(x, Tag)]
 
         # datarow = dict(zip(hdr, tds))
-        lns.append(zip(hdr, tds))
+        lns.append(dict(zip(hdr, tds)))
 
     return lns
 
@@ -134,8 +138,6 @@ if rtype == 'all':
     rtype = ['practice 1', 'practice 2', 'practice 3', 'qualifying', 'race']
 else:
     rtype = [rtype]
-    
-print "Parsing %s-%s, type: %s" % (year, gpname, rtype)
 
 gpUrl = findGpUrl(year, gpname)
 
