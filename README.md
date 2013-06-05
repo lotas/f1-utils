@@ -43,6 +43,11 @@ $python retrieve_stats.py 2013 Spain all > 2013_Spain_all.json
 $python import_practices.py < 2013_Spain_all.json
 ```
 
+or just using pipe without intermediate files:
+```sh
+$python retrieve_stats.py 2013 Spain all | import_practices.py < 2013_Spain_all.json
+```
+
 Will add all entries to the `practices` table.
 
 If there are entries with unknown drivers, new entry will be added.
