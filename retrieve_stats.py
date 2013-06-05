@@ -90,7 +90,8 @@ def findGpUrl(year, gpname):
     eventLink = [a.parent['href'] for a in soup.findAll("a", text=re.compile(gpname))]
 
     if len(eventLink) == 0:
-        raise ValueError("No GP found for year=%s and gpname=%s" % (year, gpname))
+        print "No GP found for year=%s and gpname=%s" % (year, gpname)
+        sys.exit(1)
 
     return eventLink[0]
 
@@ -108,7 +109,8 @@ def parseGpEvent(gpUrl, eventType):
     if eventType != 'race':
         links = [a.parent['href'] for a in soup.findAll('a', text=re.compile(eventType.upper()))]
         if len(links) == 0:
-            raise ValueError("Event type: %s not found for GP %s" % (eventType, gpUrl))
+            print "Event type: %s not found for GP %s" % (eventType, gpUrl)
+            return
 
         soup = BeautifulSoup(urllib.urlopen(_absUrl(links[0])))
 

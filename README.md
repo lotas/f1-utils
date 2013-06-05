@@ -33,3 +33,20 @@ will return
 ```
 
 
+---
+import_practies.py
+-
+Imports all practices sessions from a JSON, given through stdin:
+
+```sh
+$python retrieve_stats.py 2013 Spain all > 2013_Spain_all.json
+$python import_practices.py < 2013_Spain_all.json
+```
+
+Will add all entries to the `practices` table.
+
+If there are entries with unknown drivers, new entry will be added.
+Driver birthday and nationality would be fetched from wiki page, if found
+
+
+Base tables and API for F1 results could be found here: http://ergast.com/mrd/
