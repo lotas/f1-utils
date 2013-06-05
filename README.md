@@ -45,7 +45,7 @@ $python import_practices.py < 2013_Spain_all.json
 
 or just using pipe without intermediate files:
 ```sh
-$python retrieve_stats.py 2013 Spain all | import_practices.py < 2013_Spain_all.json
+$python retrieve_stats.py 2013 Spain all | python import_practices.py 
 ```
 
 Will add all entries to the `practices` table.
