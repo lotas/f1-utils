@@ -33,6 +33,9 @@ CREATE TABLE IF NOT EXISTS `practices` (
   UNIQUE KEY `practiceNumber` (`practiceNumber`,`raceId`,`driverId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+Dependencies:
+  * MySQL-python
+    #apt-get install python-mysqldb
 
 """
 
